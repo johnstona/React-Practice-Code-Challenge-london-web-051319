@@ -9,19 +9,19 @@ class AddMoney extends React.Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
+  handleSubmit = () => {
+
     this.props.addMoney(this.state.money)
+    this.setState({ money: 0 })
   }
 
   render() {
-    return <form onSubmit={this.handleSubmit} className="money-form">
+    return<div>
           <h3>Add some cashola!</h3>
 
           <input type="number" name="money" value={this.state.money} onChange={this.handleChange} placeholder="How much money" className="input-number"/>
-          <input type="submit" name="submit" value="add cash" className="submit"/>
-          </form>
-    
+          <button onClick={this.handleSubmit} className="button">Add Cash!</button>
+          </div>
   }
 }
 
