@@ -31,6 +31,7 @@ class App extends Component {
     if (this.state.money - sushi.price < 0) { alert('You have not enough money')}
     else {
     this.setState({ money: this.state.money - sushi.price})
+    sushi['price'] = 'SOLD OUT'
     this.setState({
       eatenSushis: [...this.state.eatenSushis, sushi]
     })}
@@ -49,8 +50,13 @@ class App extends Component {
     
     return (
       <div className="app">
-        <SushiContainer  addMoney={this.addMoney} addSushis={this.addSushis} eatSushi={this.eatSushi} sushis={renderSushis} eatenSushis={eatenSushis}/>
-        <Table money={this.state.money} eatenSushis={this.state.eatenSushis}/>
+        <SushiContainer  addMoney={this.addMoney} 
+        addSushis={this.addSushis} 
+        eatSushi={this.eatSushi} 
+        sushis={renderSushis} 
+        eatenSushis={eatenSushis}/>
+        <Table money={this.state.money} 
+        eatenSushis={this.state.eatenSushis}/>
       </div>
     );
   }
