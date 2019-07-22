@@ -20,6 +20,12 @@ class App extends Component {
     })
   }
 
+  addMoney = (money) => {
+    this.setState ({
+      money: (this.state.money + parseInt(money))
+    })
+  }
+
   eatSushi = (sushi) => {
     if (this.state.eatenSushis.includes(sushi)) return
     if (this.state.money - sushi.price < 0) { alert('You have not enough money')}
@@ -43,7 +49,7 @@ class App extends Component {
     
     return (
       <div className="app">
-        <SushiContainer  addSushis={this.addSushis} eatSushi={this.eatSushi} sushis={renderSushis} eatenSushis={eatenSushis}/>
+        <SushiContainer  addMoney={this.addMoney} addSushis={this.addSushis} eatSushi={this.eatSushi} sushis={renderSushis} eatenSushis={eatenSushis}/>
         <Table money={this.state.money} eatenSushis={this.state.eatenSushis}/>
       </div>
     );
